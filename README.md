@@ -1,172 +1,70 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+# Luis Mono Photography Portfolio
 
-<a name="readme-top"></a>
+A small, three-page photography portfolio website with a photo gallery, an about page and a contact page. It is a re-skin of an open source photographer template, customised with the name "Luis Mono" and links to the Redxam Network and an Instagram profile.
 
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
+![Screenshot of the portfolio](dist/assets/mockup.png)
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
+## What it does
 
-[![LinkedIn][linkedin-shield]][linkedin-url]
+- Home page with a masonry-style photo gallery. Clicking a photo opens it full size in a lightbox (Fancybox).
+- About page with an avatar and short bio.
+- Contact page with a simple form that opens the visitor's email program (`mailto:`).
+- Light and dark mode that follows the visitor's system setting.
+- Responsive layout with a hamburger menu on small screens and a fade-in on load.
 
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/JoaoFranco03/photography-portfolio">
-    <img src="dist/assets/Logo.jpg" alt="Logo" width="80" height="80">
-  </a>
+## Tech stack
 
-  <h3 align="center">Photography Portfolio</h3>
+- HTML and JavaScript, no build framework
+- Tailwind CSS (loaded from the Tailwind CDN on the home page, and a prebuilt `dist/output.css` on the other pages)
+- Alpine.js, Fancybox and jQuery, all loaded from CDNs
+- Google Fonts (Signika, Nothing You Could Do)
+- Gallery photos from Unsplash
 
-  <p align="center">
-    A Website created using Tailwind CSS, HTML, CSS <br /> and JavaScript that can be used as a Photography Portfolio.
-    <br />
-    <br />
-    <a href="https://photography-portfolio-joaofranco03.netlify.app/">View Demo</a>
-    <br />
-    <br />
-    
-  </p>
-</div>
+## Run it
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li>
-      <a href="#built-with">Built With</a>
-      <ul>
-        <li><a href="#html-badge">HTML</a></li>
-        <li><a href="#css-badge">CSS</a></li>
-        <li><a href="#js-badge">JavaScript</a></li>
-        <li><a href="#tailwind-badge">Tailwind CSS</a></li>
-      </ul>
-    </li>
-    <li><a href="#quick-start">Quick Start</a></li>
-    <li><a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-<!-- ABOUT THE PROJECT -->
-
-# 📋 About The Project <a name="about-the-project"></a>
-
-[![Product Name Screen Shot][product-screenshot]](https://github.com/JoaoFranco03/photography-portfolio)
-
-This project is a web-based portfolio that beautifully showcases the photography work of Sophia Williams, a fictional photographer. The portfolio was skillfully built using a combination of powerful front-end technologies, including Tailwind CSS, CSS, HTML, and JavaScript.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 🛠️ Built With <a name="built-with"></a>
-
-- [![HTML][html-badge]][html-url]
-- [![CSS][css-badge]][css-url]
-- [![JavaScript][js-badge]][js-url]
-- [![Tailwind][tailwind-badge]][tailwind-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 🚀 Quick Start <a name="quick-start"></a>
-
-Create your own page with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/JoaoFranco03/photography-portfolio)
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 🎯 Getting Started <a name="getting-started"></a>
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### 🏗️ Installation <a name="installation"></a>
-
-1. Clone the repo
+There is nothing to install. It is a static site, so any static file server works. From the repository root:
 
 ```sh
- git clone https://github.com/JoaoFranco03/photography-portfolio/.git
+python3 -m http.server 8000
 ```
 
-2.  Run the following command:
+Then open http://localhost:8000/ in a browser. Opening `index.html` directly from the disk also works for most things.
+
+The browser needs internet access, because the scripts, fonts and photos are loaded from CDNs.
+
+### Optional: rebuild the Tailwind CSS
+
+`dist/output.css` is already built and committed. If you want to regenerate it after editing the HTML, you need a `tailwind.config.js` that lists the HTML files in `content` (the original one is not in this repository), then run:
 
 ```sh
- npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
+npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
 ```
-3.  Run the Project in a Server
 
-4.  Change it with your own photos, about me and contact info.
+### Host it as a live demo
 
-5.  Publish it using your preferred hosting platform.
+The whole repository is static files with no secrets, so it can be served as is, for example with GitHub Pages or Netlify. No build step is needed. Publish the repository root (the folder that contains `index.html`).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Project layout
 
-<!-- LICENSE -->
+- `index.html`: home page and gallery
+- `dist/about_me.html`, `dist/contact.html`: the other two pages
+- `dist/output.css`: prebuilt Tailwind CSS used by the other two pages
+- `dist/fade_in.js`, `dist/menu.js`: page fade-in and mobile menu
+- `dist/assets/`: logo, favicon, avatar and the screenshot
+- `src/input.css`: Tailwind entry file with a few custom utilities
 
-## 📜 License <a name="license"></a>
+## Status
 
-Distributed under the GPL-3.0 License. See `LICENSE.txt` for more information.
+Working, but a template-level prototype. Things to know:
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- The home page loads five photos from `source.unsplash.com`, an Unsplash service that has been shut down, so those images may not load. Replace them with your own photos or direct `images.unsplash.com` links.
+- The contact form sends nothing to a server. It opens a `mailto:` link to the placeholder address `info@example.com`, and the contact page heading still says "Sophia Williams" from the original template. Update these before using the site for real.
+- The Facebook, Twitter, LinkedIn and Behance links point to the sites' home pages.
 
-<!-- CONTACT -->
+## Credits
 
-## 📧 Contact <a name="contact"></a>
+This project is based on the open source [photography-portfolio](https://github.com/JoaoFranco03/photography-portfolio) template by João Franco, with changes by Max Awad (Redxam Network). Thanks also to [Tailwind CSS](https://tailwindcss.com), [Alpine.js](https://alpinejs.dev), [Fancybox](https://fancyapps.com/fancybox/) and [Unsplash](https://unsplash.com/) photographers.
 
-João Franco - https://www.linkedin.com/in/joão-franco-452161195/
+## License
 
-Project Link: [https://github.com/JoaoFranco03/photography-portfolio/](https://github.com/JoaoFranco03/photography-portfolio/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-
-## 🌟 Acknowledgments <a name="acknowledgments"></a>
-
-- [FancyBox](https://fancyapps.com/fancybox/)
-- [Unsplash](https://unsplash.com/)
-- [Tailwind Documentation](https://tailwindcss.com/docs/installation)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[tailwind-badge]: https://img.shields.io/badge/Tailwind_CSS-62BAF3?style=for-the-badge&logo=tailwind-css&logoColor=white
-[tailwind-url]: https://tailwindcss.com
-[html-badge]: https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white
-[html-url]: https://developer.mozilla.org/en-US/docs/Web/HTML
-[css-badge]: https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white
-[css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS
-[js-badge]: https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black
-[js-url]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
-[license-url]: https://github.com/JoaoFranco03/photography-portfolio/blob/main/LICENSE.md
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/joão-franco-452161195/
-[product-screenshot]: dist/assets/mockup.png
+MIT, see [LICENSE](LICENSE).
